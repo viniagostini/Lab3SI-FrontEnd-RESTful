@@ -1,0 +1,36 @@
+<html ng-app="toDoList">
+<head>
+  <meta charset="utf-8">
+  <title>TODO List</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="navbar-header">
+        <p class="navbar-brand">To Do List</p>
+      </div>
+    </nav>
+  </header>
+
+  <section class="container">
+    <div ng-view></div>  
+  </section>
+
+  <!-- Dependencies -->
+  <script src="node_modules/angular/angular.js"></script>
+  <script src="node_modules/angular-route/angular-route.js"></script>
+
+  <!-- Config -->
+  <script src="app.js"></script>
+  <script src="routes.js"></script>
+
+  <!-- Controllers -->
+  <script src="components/toDoList/toDoListCtlr.js"></script>
+
+  <!-- Controllers -->
+  <script src="components/toDoList/toDoListService.js"></script>
+
+
+</body>
+</html>
