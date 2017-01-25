@@ -1,0 +1,35 @@
+<div layout="column" ng-cloak>
+    <md-toolbar class="md-toolbar-tools md-accent">
+        <h2>
+            <span>{{title}}</span>
+        </h2>
+    </md-toolbar>
+
+    <md-content layout-padding>
+        <form name="taskCategoryForm" ng-submit="submit(category)">
+            <div layout="row">
+                <md-input-container flex="100">
+                    <label>Category Name</label>
+                    <input required name="name" ng-model="category.name">
+                    <div ng-messages="taskCategoryForm.name.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+            </div>
+
+            <div layout="row">
+                <md-input-container flex="100">
+                    <label>Category color</label>
+                    <md-select name="type" ng-model="category.color" required>
+                        <md-option ng-repeat="color in colors"  md-colors="{background: '{{color}}'}" value="{{color}}">{{color}}</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <div>
+                <md-button type="submit" class="md-raised md-primary">Submit</md-button>
+            </div>
+        </form>
+    </md-content>
+
+</div>
+

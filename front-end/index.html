@@ -2,24 +2,24 @@
 <head>
   <meta charset="utf-8">
   <title>TODO List</title>
-  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/node_modules/angular-material/angular-material.css">
+  <link rel="stylesheet" href="/components/category/taskCategory.css">
 </head>
 <body>
   <header>
-    <nav class="navbar navbar-inverse" role="navigation">
-      <div class="navbar-header">
-        <p class="navbar-brand">To Do List</p>
-      </div>
-    </nav>
   </header>
 
   <section class="container">
-    <div ng-view></div>  
+    <div ui-view></div>
   </section>
 
   <!-- Dependencies -->
   <script src="node_modules/angular/angular.js"></script>
-  <script src="node_modules/angular-route/angular-route.js"></script>
+  <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="/node_modules/angular-aria/angular-aria.js"></script>
+  <script src="/node_modules/angular-animate/angular-animate.js"></script>
+  <script src="/node_modules/angular-material/angular-material.js"></script>
 
   <!-- Config -->
   <script src="app.js"></script>
@@ -27,9 +27,13 @@
 
   <!-- Controllers -->
   <script src="components/toDoList/toDoListCtlr.js"></script>
+  <script src="components/category/taskCategoryController.js"></script>
 
-  <!-- Controllers -->
+  <!-- Services & Factories -->
   <script src="components/toDoList/toDoListService.js"></script>
+  <script src="components/category/taskCategory.http.service.js"></script>
+  <script src="components/category/taskCategoryRequestService.js"></script>
+  <script src="components/common/customDialogFactory.js"></script>
 
 
 </body>

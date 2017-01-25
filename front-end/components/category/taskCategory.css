@@ -1,0 +1,30 @@
+#categories-md-list{
+    margin: auto;
+    width: 90%;
+}
+
+.color-box {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background-color: #ccc;
+    left: 5px;
+    top: 5px;
+}
+
+md-list-item:hover {
+    background-color: lightgrey;
+}
+md-list-item{
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+md-list{
+    margin-bottom: 40px;
+}
+
+md-card{
+    width: 70%;
+    margin: auto;
+}
+
