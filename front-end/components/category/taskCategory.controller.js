@@ -50,7 +50,7 @@ angular.module('toDoList').controller('taskCategoryController', function($scope,
                 })
             };
         }
-        customDialogFactory.show(event,'components/category/templates/create.taskCategory.html', DialogController);
+        customDialogFactory.show(event,'components/category/templates/create.taskList.html', DialogController);
     }
 
 

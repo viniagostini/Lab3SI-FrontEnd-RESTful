@@ -11,7 +11,11 @@
   </header>
 
   <section class="container">
-    <div ui-view></div>
+    <div layout="row" ng-include="'components/shared/toolbar/toolbar.html'"></div>
+    <div layout="row" style="margin-top: 65px">
+      <div style="width: 20%" layout="column" ng-include="'components/shared/sidenav/sidenav.html'"></div>
+      <div style="width: 80%" layout="column" ui-view></div>
+    </div>
   </section>
 
   <!-- Dependencies -->
@@ -23,17 +27,21 @@
 
   <!-- Config -->
   <script src="app.js"></script>
-  <script src="routes.js"></script>
+  <script src="config/routes.js"></script>
 
   <!-- Controllers -->
   <script src="components/toDoList/toDoListCtlr.js"></script>
-  <script src="components/category/taskCategoryController.js"></script>
+  <script src="components/category/taskCategory.controller.js"></script>
+  <script src="components/taskList/taskList.controller.js"></script>
+  <script src="components/shared/toolbar/toolbar.controller.js"></script>
 
   <!-- Services & Factories -->
   <script src="components/toDoList/toDoListService.js"></script>
   <script src="components/category/taskCategory.http.service.js"></script>
-  <script src="components/category/taskCategoryRequestService.js"></script>
-  <script src="components/common/customDialogFactory.js"></script>
+  <script src="components/category/taskCategory.request.service.js"></script>
+  <script src="components/taskList/taskList.http.service.js"></script>
+  <script src="components/taskList/taskList.request.service.js"></script>
+  <script src="components/shared/customDialog.factory.js"></script>
 
 
 </body>

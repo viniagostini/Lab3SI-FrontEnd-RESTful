@@ -1,0 +1,26 @@
+<div layout="column" ng-cloak>
+    <md-toolbar class="md-hue-2" layout="row" layout-align="space-around center">
+
+            {{title}}
+
+    </md-toolbar>
+
+    <md-content layout-padding>
+        <form name="taskListForm" ng-submit="submit(taskList)">
+            <div layout="row">
+                <md-input-container flex="100">
+                    <label>Category Name</label>
+                    <input required name="name" ng-model="taskList.title">
+                    <div ng-messages="taskListForm.name.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+            </div>
+            <div>
+                <md-button type="submit" class="md-raised md-primary">Submit</md-button>
+            </div>
+        </form>
+    </md-content>
+
+</div>
+

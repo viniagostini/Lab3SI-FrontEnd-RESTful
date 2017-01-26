@@ -1,8 +1,8 @@
 <div layout="column" ng-cloak>
-    <md-toolbar class="md-toolbar-tools md-accent">
-        <h2>
-            <span>{{title}}</span>
-        </h2>
+    <md-toolbar class="md-hue-2" layout="row" layout-align="space-around center">
+
+            {{title}}
+
     </md-toolbar>
 
     <md-content layout-padding>
@@ -20,7 +20,7 @@
             <div layout="row">
                 <md-input-container flex="100">
                     <label>Category color</label>
-                    <md-select name="type" ng-model="category.color" required>
+                    <md-select name="color" ng-model="category.color" required>
                         <md-option ng-repeat="color in colors"  md-colors="{background: '{{color}}'}" value="{{color}}">{{color}}</md-option>
                     </md-select>
                 </md-input-container>

@@ -1,0 +1,27 @@
+<div ng-init="init()" id="taskList-component">
+    <md-card>
+        <md-card-title>
+            <md-card-title-text layout-align="end center">
+                <span class="md-headline">Task Lists</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+            <div id="categories-md-list">
+                <md-list ng-cloak id="taskList-md-list">
+                    <md-divider></md-divider>
+                    <md-list-item ng-repeat="taskList in taskLists" class="noright" ng-click="test()" >
+                        <md-divider></md-divider>
+                        <p>{{ taskList.title }}</p>
+                        <p>{{ taskList.createdAt | date: 'dd/MM/yyyy' }}</p>
+                        <md-icon class="md-secondary" ng-click="editTaskList($event, taskList)" aria-label="Chat" >edit</md-icon>
+                        <md-icon class="md-secondary md-hue-3" ng-click="deleteTaskList(taskList.id)">delete</md-icon>
+                    </md-list-item>
+                </md-list>
+                <md-button class="md-raised md-primary" ng-click="createTaskList($event)">Create task</md-button>
+            </div>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+        </md-card-actions>
+    </md-card>
+
+</div>
