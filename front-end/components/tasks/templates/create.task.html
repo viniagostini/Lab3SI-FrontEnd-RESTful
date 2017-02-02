@@ -1,0 +1,42 @@
+<div layout="column" ng-cloak>
+    <md-toolbar class="md-hue-2" layout="row" layout-align="space-around center">
+        {{title}}
+    </md-toolbar>
+    <md-content layout-padding>
+        <form name="taskForm" ng-submit="submit(task)">
+            <div layout="row">
+                <md-input-container flex="100">
+                    <label>Title</label>
+                    <input required name="name" ng-model="task.title">
+                    <div ng-messages="taskForm.name.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+            </div>
+            <md-input-container class="md-block">
+                <label>Description</label>
+                <textarea ng-model="task.description" md-maxlength="150" rows="3" md-select-on-focus></textarea>
+            </md-input-container>
+            <div layout="row">
+                <md-input-container flex="100">
+                    <label>Prority</label>
+                    <md-select name="priority" ng-model="task.priority" required>
+                        <md-option ng-repeat="priority in priorities"  value="{{priority}}">{{priority}}</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container flex="100">
+                    <label>Title</label>
+                    <md-select name="color" ng-model="task.category.id" required>
+                        <md-option ng-repeat="category in categories"  md-colors="{background: '{{category.color}}'}" value="{{category.id}}">{{category.name}}</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <div>
+                <md-button type="submit" class="md-raised md-primary">Submit</md-button>
+            </div>
+        </form>
+    </md-content>
+</div>
+

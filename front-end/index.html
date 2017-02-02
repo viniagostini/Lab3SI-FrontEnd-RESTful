@@ -5,6 +5,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="/node_modules/angular-material/angular-material.css">
   <link rel="stylesheet" href="/components/category/taskCategory.css">
+  <link rel="stylesheet" href="/components/shared/common.css">
 </head>
 <body>
   <header>
@@ -12,9 +13,9 @@
 
   <section class="container">
     <div layout="row" ng-include="'components/shared/toolbar/toolbar.html'"></div>
-    <div layout="row" style="margin-top: 65px">
-      <div style="width: 20%" layout="column" ng-include="'components/shared/sidenav/sidenav.html'"></div>
-      <div style="width: 80%" layout="column" ui-view></div>
+    <div layout="row">
+      <div class="sidenav" layout="column" ng-include="'components/shared/sidenav/sidenav.html'"></div>
+      <div class="component" layout="column" ui-view></div>
     </div>
   </section>
 
@@ -32,15 +33,18 @@
   <!-- Controllers -->
   <script src="components/toDoList/toDoListCtlr.js"></script>
   <script src="components/category/taskCategory.controller.js"></script>
-  <script src="components/taskList/taskList.controller.js"></script>
+  <script src="components/taskLists/taskList.controller.js"></script>
+  <script src="components/tasks/tasks.controller.js"></script>
   <script src="components/shared/toolbar/toolbar.controller.js"></script>
 
   <!-- Services & Factories -->
   <script src="components/toDoList/toDoListService.js"></script>
   <script src="components/category/taskCategory.http.service.js"></script>
   <script src="components/category/taskCategory.request.service.js"></script>
-  <script src="components/taskList/taskList.http.service.js"></script>
-  <script src="components/taskList/taskList.request.service.js"></script>
+  <script src="components/taskLists/taskList.http.service.js"></script>
+  <script src="components/taskLists/taskList.request.service.js"></script>
+  <script src="components/tasks/tasks.http.service.js"></script>
+  <script src="components/tasks/tasks.request.service.js"></script>
   <script src="components/shared/customDialog.factory.js"></script>
 
 

@@ -17,8 +17,14 @@ angular.module('toDoList')
 
         .state('tasklist', {
             url:'/tasklist',
-            templateUrl: '../components/tasklist/taskList.html',
+            templateUrl: '../components/taskLists/taskList.html',
             controller: 'taskListController'
+        })
+
+        .state('tasks', {
+            url:'/tasks/:taskListId',
+            templateUrl: '../components/tasks/tasks.html',
+            controller: 'tasksController'
         })
 
         .state("otherwise", {

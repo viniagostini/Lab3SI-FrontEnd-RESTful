@@ -9,7 +9,7 @@
             <div id="categories-md-list">
                 <md-list ng-cloak id="taskList-md-list">
                     <md-divider></md-divider>
-                    <md-list-item ng-repeat="taskList in taskLists" class="noright" ng-click="test()" >
+                    <md-list-item ng-repeat="taskList in taskLists" class="noright" ui-sref="tasks({ taskListId: taskList.id})" >
                         <md-divider></md-divider>
                         <p>{{ taskList.title }}</p>
                         <p>{{ taskList.createdAt | date: 'dd/MM/yyyy' }}</p>
@@ -23,5 +23,4 @@
         <md-card-actions layout="row" layout-align="end center">
         </md-card-actions>
     </md-card>
-
 </div>

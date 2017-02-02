@@ -1,0 +1,24 @@
+@media screen and (min-width: 480px){
+    .sidenav{
+        width: 1%;
+
+    }
+    .component{
+        width: 99%;
+
+    }
+}
+
+@media screen and (min-width: 1280px){
+    .sidenav{
+        width: 20%;
+
+    }
+    .component{
+        width: 80%;
+
+    }
+}
+.component{
+    margin-top: 65px;
+}

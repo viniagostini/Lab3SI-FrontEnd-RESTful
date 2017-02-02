@@ -50,10 +50,8 @@ angular.module('toDoList').controller('taskCategoryController', function($scope,
                 })
             };
         }
-        customDialogFactory.show(event,'components/category/templates/create.taskList.html', DialogController);
+        customDialogFactory.show(event,'components/category/templates/create.taskCategory.html', DialogController);
     }
-
-
 
     function Category(id, name, color){
         this.id = id;
@@ -64,15 +62,19 @@ angular.module('toDoList').controller('taskCategoryController', function($scope,
     function getAllTaskCategories (callback){
         taskCategoryRequestService.getAllTaskCategories(callback);
     }
+
      function getTaskCategoryById (categoryId, callback){
         taskCategoryRequestService.getTaskCategoryById(categoryId, callback);
     }
+
     function createTaskCategory  (category, callback){
         taskCategoryRequestService.createTaskCategory(category, callback);
     }
+
     function editTaskCategory (category, callback){
         taskCategoryRequestService.editTaskCategory(category, callback);
     }
+    
     function deleteTaskCategory (categoryId, callback){
         taskCategoryRequestService.deleteTaskCategory(categoryId, callback);
     }
