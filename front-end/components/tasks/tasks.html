@@ -1,17 +1,13 @@
 <div ng-init="init()" >
-    <md-card style="width: 95%">
+    <md-card class="tasks-card">
         <md-card-title>
             <md-card-title-text layout-align="end center">
                 <span class="md-headline">{{taskList.title}}</span>
             </md-card-title-text>
         </md-card-title>
-
         <md-card-content>
-
-
-            <!-- exact table from live demo -->
             <md-table-container>
-                <md-input-container style="width: 90%; margin-bottom: 0">
+                <md-input-container class="search-container">
                     <label>Search</label>
                     <input name="search" ng-model="filter.search">
                 </md-input-container>
@@ -27,7 +23,7 @@
                     </tr>
                     </thead>
                     <tbody md-body>
-                    <tr md-row md-select="task" md-select-id="title" ng-repeat="task in taskList.tasks | orderBy: query.order | filter: filter.search as filteredTasks">
+                    <tr class="content-row" md-row md-select="task" md-select-id="title" ng-repeat="task in taskList.tasks | orderBy: query.order | filter: filter.search as filteredTasks">
                         <td md-cell><md-checkbox ng-model="task.done" ng-click="setTaskState(task)"></md-checkbox></td>
                         <td md-cell ng-style="{'text-decoration': defineTaskStyle(task.done)}">{{task.title}}</td>
                         <td md-cell>{{task.priority}}</td>
@@ -43,11 +39,11 @@
                     </tbody>
                 </table>
             </md-table-container>
-            <div layout="row" style="margin-top: 30px" layout-align="space-between center">
+            <div layout="row" class="tasks-table-bottom" layout-align="space-between center">
                 <md-button class="md-raised md-primary" ng-click="createTask($event)">Create task</md-button>
                 <div layout="column"  layout-align="center end">
-                    <p style="margin: 2px">Open Tasks: {{ getNumberOfOpenTasks(filteredTasks) }}</p>
-                    <p style="margin: 2px">Total: {{ filteredTasks.length }}</p>
+                    <p class="tasks-number-info">Open Tasks: {{ getNumberOfOpenTasks(filteredTasks) }}</p>
+                    <p class="tasks-number-info">Total: {{ filteredTasks.length }}</p>
                 </div>
             </div>
         </md-card-content></md-card></div>

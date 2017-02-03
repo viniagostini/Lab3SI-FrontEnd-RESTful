@@ -1,0 +1,24 @@
+.tasks-number-info{
+    margin: 2px;
+}
+
+.tasks-table-bottom{
+    margin-top: 30px;
+}
+
+.search-container{
+    width: 90%;
+    margin-bottom: 0;
+}
+
+.tasks-card{
+    width: 95%;
+}
+
+.content-row:hover {
+    background-color: lightgrey;
+}
+
+tr{
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
