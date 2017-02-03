@@ -1,27 +1,53 @@
-<div ng-init="init()" id="taskList-component">
-    <md-card>
+<div ng-init="init()" >
+    <md-card style="width: 95%">
         <md-card-title>
             <md-card-title-text layout-align="end center">
                 <span class="md-headline">{{taskList.title}}</span>
             </md-card-title-text>
         </md-card-title>
+
         <md-card-content>
-            <div id="categories-md-list">
-                <md-list ng-cloak id="taskList-md-list">
-                    <md-divider></md-divider>
-                    <md-list-item ng-repeat="task in taskList.tasks" class="noright" >
-                        <md-divider></md-divider>
-                        <p>{{ task.title }}</p>
-                        {{task.priority}}
-                        <p>{{ task.createdAt | date: 'dd/MM/yyyy' }}</p>
-                        <md-icon class="md-secondary" ng-click="" aria-label="Chat" >edit</md-icon>
-                        <md-icon class="md-secondary md-hue-3" ng-click="">delete</md-icon>
-                    </md-list-item>
-                </md-list>
+
+
+            <!-- exact table from live demo -->
+            <md-table-container>
+                <md-input-container style="width: 90%; margin-bottom: 0">
+                    <label>Search</label>
+                    <input name="search" ng-model="filter.search">
+                </md-input-container>
+                <table md-table md-row-select="false" multiple="false" ng-model="selected">
+                    <thead md-head md-order="query.order">
+                    <tr md-row>
+                        <th md-column md-order-by="done"><span>Done</span></th>
+                        <th md-column md-order-by="title"><span>Title</span></th>
+                        <th md-column md-order-by="priority"><span>Priority</span></th>
+                        <th md-column md-order-by="category.name">Category</th>
+                        <th md-column md-order-by="createdAt">Created At</th>
+                        <th md-column ></th>
+                    </tr>
+                    </thead>
+                    <tbody md-body>
+                    <tr md-row md-select="task" md-select-id="title" ng-repeat="task in taskList.tasks | orderBy: query.order | filter: filter.search as filteredTasks">
+                        <td md-cell><md-checkbox ng-model="task.done" ng-click="setTaskState(task)"></md-checkbox></td>
+                        <td md-cell ng-style="{'text-decoration': defineTaskStyle(task.done)}">{{task.title}}</td>
+                        <td md-cell>{{task.priority}}</td>
+                        <td md-cell>{{task.category.name}}</td>
+                        <td md-cell>{{task.createdAt | date: 'dd/MM/yyyy'}}</td>
+                        <td md-cell>
+                            <md-select ng-model="task.asdf" placeholder="Options">
+                                <md-option ng-click="editTask(task, $event)"><md-icon>edit</md-icon> Edit</md-option>
+                                <md-option ng-click="deleteTask(task.id)"><md-icon>delete</md-icon> Delete </md-option>
+                            </md-select>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+            <div layout="row" style="margin-top: 30px" layout-align="space-between center">
                 <md-button class="md-raised md-primary" ng-click="createTask($event)">Create task</md-button>
+                <div layout="column"  layout-align="center end">
+                    <p style="margin: 2px">Open Tasks: {{ getNumberOfOpenTasks(filteredTasks) }}</p>
+                    <p style="margin: 2px">Total: {{ filteredTasks.length }}</p>
+                </div>
             </div>
-        </md-card-content>
-        <md-card-actions layout="row" layout-align="end center">
-        </md-card-actions>
-    </md-card>
-</div>
+        </md-card-content></md-card></div>
