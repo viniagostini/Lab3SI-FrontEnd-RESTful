@@ -1,22 +1,18 @@
 @media screen and (min-width: 480px){
     .sidenav{
         width: 1%;
-
     }
     .component{
         width: 99%;
-
     }
 }
 
 @media screen and (min-width: 1280px){
     .sidenav{
         width: 25%;
-
     }
     .component{
         width: 75%;
-
     }
 }
 .component{
