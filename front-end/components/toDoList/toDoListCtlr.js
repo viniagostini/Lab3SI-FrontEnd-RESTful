@@ -26,7 +26,7 @@ angular.module('toDoList').controller('toDoListCtlr', ['$scope', 'toDoListServic
     $scope.tasks.push(task2);
   }
 
-  $scope.createTask = function(title){
+  $scope.createSubask = function(title){
     $scope.tasks.push( new Task($scope.tasks.length, title) );
     $scope.newTaskTitle = '';
   }

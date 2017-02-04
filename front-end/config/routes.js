@@ -27,6 +27,12 @@ angular.module('toDoList')
             controller: 'tasksController'
         })
 
+        .state('subtasks', {
+            url:'/subtasks/:taskId',
+            templateUrl: '../components/subtasks/subtasks.html',
+            controller: 'subtasksController'
+        })
+
         .state("otherwise", {
             url: "*path",
             templateUrl: '../components/category/taskCategory.html'

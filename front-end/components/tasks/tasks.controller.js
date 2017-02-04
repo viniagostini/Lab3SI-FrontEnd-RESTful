@@ -43,7 +43,7 @@ angular.module('toDoList').controller('tasksController', function($scope, $state
                 task.taskList = {};
                 task.taskList.id = taskListId;
                 console.log(task);
-                createTask(task, function (response) {
+                editTask(task, function (response) {
                     console.log(response);
                     $mdDialog.hide();
                     fillData();
@@ -110,7 +110,7 @@ angular.module('toDoList').controller('tasksController', function($scope, $state
     }
 
     function getTaskById (taskId, callback){
-        tasksRequestService.getTaskById(taskId, callback);
+        tasksRequestService.getSubtaskById(taskId, callback);
     }
 
     function createTask  (task, callback){

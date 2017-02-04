@@ -1,0 +1,45 @@
+<div ng-init="init()" >
+    <md-card class="tasks-card">
+        <md-card-title>
+            <md-card-title-text layout-align="end center">
+                <span class="md-headline">{{task.title}}</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+            <md-table-container>
+                <md-input-container class="search-container">
+                    <label>Search</label>
+                    <input name="search" ng-model="filter.search">
+                </md-input-container>
+                <table md-table md-row-select="false" multiple="false" ng-model="selected">
+                    <thead md-head md-order="query.order">
+                    <tr md-row>
+                        <th md-column><span><md-checkbox ng-model="task.done" ng-click="setTaskState(task)"></span></th>
+                        <th md-column md-order-by="title"><span>Title</span></th>
+                        <th md-column md-order-by="description"><span>Description</span></th>
+                        <th md-column ></th>
+                    </tr>
+                    </thead>
+                    <tbody md-body>
+                    <tr class="content-row" md-row md-select="subtask" md-select-id="title" ng-repeat="subtask in task.subTasks | orderBy: query.order | filter: filter.search as filteredSubasks">
+                        <td md-cell><md-checkbox ng-model="subtask.done" ng-click="setSubtaskState(subtask)"></md-checkbox></td>
+                        <td md-cell ng-style="{'text-decoration': defineSubtaskStyle(subtask.done)}">{{subtask.title}}</td>
+                        <td md-cell>{{subtask.description}}</td>
+                        <td md-cell>
+                            <md-select ng-model="task.asdf" placeholder="Options">
+                                <md-option ng-click="editTask(task, $event)"><md-icon>edit</md-icon> Edit</md-option>
+                                <md-option ng-click="deleteTask(task.id)"><md-icon>delete</md-icon> Delete </md-option>
+                            </md-select>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+            <div layout="row" class="tasks-table-bottom" layout-align="space-between center">
+                <md-button class="md-raised md-primary" ng-click="createTask($event)">Create task</md-button>
+                <div layout="column"  layout-align="center end">
+                    <p class="tasks-number-info">Open Subtasks: {{ getNumberOfOpenSubtasks(filteredSubasks) }}</p>
+                    <p class="tasks-number-info">Total: {{ filteredSubasks.length }}</p>
+                </div>
+            </div>
+        </md-card-content></md-card></div>
