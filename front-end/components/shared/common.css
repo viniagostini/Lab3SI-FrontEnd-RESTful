@@ -1,21 +1,23 @@
 @media screen and (min-width: 480px){
     .sidenav{
-        width: 1%;
+        width: 0%;
     }
     .component{
-        width: 99%;
+        width: 100%;
     }
 }
 
 @media screen and (min-width: 1280px){
     .sidenav{
-        width: 25%;
+        width: 21%;
     }
     .component{
-        width: 75%;
+        width: 79%;
     }
 }
 .component{
-    margin-top: 65px;
+    margin-top: 64px;
     min-width: 842px;
+    background-color: cadetblue;
+    height: 100%;
 }
