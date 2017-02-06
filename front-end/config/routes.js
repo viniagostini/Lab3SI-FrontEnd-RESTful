@@ -33,6 +33,12 @@ angular.module('toDoList')
             controller: 'subtasksController'
         })
 
+        .state('about', {
+            url:'/about',
+            templateUrl: '../components/about/about.html'
+        })
+
+
         .state("otherwise", {
             url: "*path",
             templateUrl: '../components/category/taskCategory.html'
