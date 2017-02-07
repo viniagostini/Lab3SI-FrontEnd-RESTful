@@ -9,15 +9,29 @@
 
 @media screen and (min-width: 1280px){
     .sidenav{
-        width: 21%;
+        width: 25%;
     }
     .component{
-        width: 79%;
+        width: 75%;
     }
 }
+
+@media screen and (min-width: 1500px){
+    .sidenav{
+        width: 20%;
+    }
+    .component{
+        width: 80%;
+    }
+}
+
 .component{
     margin-top: 64px;
     min-width: 842px;
     background-color: cadetblue;
     height: 100%;
+}
+
+.sidenav{
+    background-color: cadetblue;
 }

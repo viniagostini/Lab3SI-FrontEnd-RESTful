@@ -1,7 +1,11 @@
-angular.module('toDoList').service('tasksRequestService', function(taskHttpService, taskListRequestService) {
+angular.module('toDoList').service('tasksRequestService', function(taskHttpService, taskListRequestService, taskCategoryRequestService) {
 
     this.getAllTasksByTaskListId = function (taskListId, callback) {
-        return taskListRequestService.getTaskListById(taskListId, callback);
+        taskListRequestService.getTaskListById(taskListId, callback);
+    }
+
+    this.getAllTasksByCategoryId = function(categoryId, callback){
+        taskCategoryRequestService.getTaskCategoryById(categoryId, callback);
     }
 
     this.getAllTasks = function (callback){

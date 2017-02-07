@@ -9,7 +9,7 @@
             <div id="categories-md-list">
                 <md-list ng-cloak>
                     <md-divider></md-divider>
-                    <md-list-item ng-repeat="category in taskCategories" class="noright">
+                    <md-list-item ng-repeat="category in taskCategories" class="noright" ui-sref="tasksFromCategory({ taskCategoryId: category.id})">
                         <md-divider></md-divider>
                         <p>{{ category.name }}</p>
                         <div class="md-avatar color-box" md-colors="{background: '{{category.color}}'}"></div>

@@ -27,7 +27,7 @@
             </div>
             <div layout="row">
                 <md-input-container flex="100">
-                    <label>Title</label>
+                    <label>Category</label>
                     <md-select name="color" ng-model="task.category.id" required>
                         <md-option ng-repeat="category in categories"  md-colors="{background: '{{category.color}}'}" value="{{category.id}}">{{category.name}}</md-option>
                     </md-select>

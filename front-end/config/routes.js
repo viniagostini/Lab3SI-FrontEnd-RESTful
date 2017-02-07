@@ -1,6 +1,12 @@
 angular.module('toDoList')
 
-.config(['$stateProvider', function($stateProvider) {
+.config(function($stateProvider, $urlRouterProvider) {
+
+    $urlRouterProvider.otherwise( function($injector) {
+        var $state = $injector.get("$state");
+        $state.go('about');
+    });
+
     $stateProvider
 
         .state('todolist', {
@@ -27,6 +33,12 @@ angular.module('toDoList')
             controller: 'tasksController'
         })
 
+        .state('tasksFromCategory', {
+            url:'/tasksFomCategory/:taskCategoryId',
+            templateUrl: '../components/tasks/tasks.html',
+            controller: 'tasksFromCategoryController'
+        })
+
         .state('subtasks', {
             url:'/subtasks/:taskId',
             templateUrl: '../components/subtasks/subtasks.html',
@@ -38,9 +50,4 @@ angular.module('toDoList')
             templateUrl: '../components/about/about.html'
         })
 
-
-        .state("otherwise", {
-            url: "*path",
-            templateUrl: '../components/category/taskCategory.html'
-        })
-}])
+});

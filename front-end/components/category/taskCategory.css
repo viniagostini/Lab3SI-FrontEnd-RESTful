@@ -1,6 +1,6 @@
-
 #categories-component{
    margin-top: 25px;
+    width: 100%;
 }
 
 #categories-md-list{
@@ -10,13 +10,11 @@
 
 #task-title{
     width: 1px;
-
     margin: 2px;
     font-weight: bold;
     border-radius: 3%;
     color: #0f0f0f;
 }
-
 
 .color-box {
     width: 25px;
@@ -43,7 +41,7 @@ md-list{
 }
 
 md-card{
-    width: 70%;
+    width: 90%;
     margin: auto;
 }
 
