@@ -1,4 +1,4 @@
-angular.module('toDoList').controller('tasksController', function($scope, $stateParams, tasksRequestService, customDialogFactory){
+angular.module('toDoList').controller('tasksController', function($scope, $stateParams, tasksRequestService, customDialogFactory, $state){
 
     $scope.taskList = {};
     $scope.fromTaskList = true;
@@ -30,30 +30,7 @@ angular.module('toDoList').controller('tasksController', function($scope, $state
         }
         customDialogFactory.show(event,'components/tasks/templates/create.task.html', DialogController);
     }
-
-    $scope.createSubask = function(event){
-        function DialogController($scope, $mdDialog, taskCategoryRequestService) {
-            $scope.title = 'Create a Task';
-            $scope.priorities  = ['LOW', 'MEDIUM', 'HIGH']
-            $scope.categories = {};
-            taskCategoryRequestService.getAllTaskCategories(function(response){
-                $scope.categories = response.data;
-            });
-            $scope.submit = function(task) {
-                task.createdAt = new Date();
-                task.taskList = {};
-                task.taskList.id = taskListId;
-                console.log(task);
-                createSubask(task, function (response) {
-                    console.log(response);
-                    $mdDialog.hide();
-                    fillData();
-                });
-            };
-        }
-        customDialogFactory.show(event,'components/tasks/templates/create.task.html', DialogController);
-    }
-
+    
     $scope.editTask = function(task, event){
         function DialogController($scope, $mdDialog, taskCategoryRequestService) {
             $scope.task = task;
@@ -116,6 +93,11 @@ angular.module('toDoList').controller('tasksController', function($scope, $state
             return openTasks.length;
         }
     }
+
+    $scope.openSubtasks = function(event, task){
+        $state.go('subtasks', { taskId: task.id});
+    }
+
 
     function fillData(){
         taskListId = $stateParams.taskListId;

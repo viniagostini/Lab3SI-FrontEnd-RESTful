@@ -1,4 +1,4 @@
-<div ng-init="init()" >
+<div ng-init="init() "id="subtasks-component">
     <md-card class="tasks-card">
         <md-card-title>
             <md-card-title-text layout-align="end center">
@@ -27,8 +27,8 @@
                         <td md-cell>{{subtask.description}}</td>
                         <td md-cell>
                             <md-select ng-model="task.asdf" placeholder="Options">
-                                <md-option ng-click="editTask(task, $event)"><md-icon>edit</md-icon> Edit</md-option>
-                                <md-option ng-click="deleteTask(task.id)"><md-icon>delete</md-icon> Delete </md-option>
+                                <md-option ng-click="editSubtask($event, subtask)"><md-icon>edit</md-icon> Edit</md-option>
+                                <md-option ng-click="deleteSubtask(subtask.id)"><md-icon>delete</md-icon> Delete </md-option>
                             </md-select>
                         </td>
                     </tr>
@@ -36,7 +36,8 @@
                 </table>
             </md-table-container>
             <div layout="row" class="tasks-table-bottom" layout-align="space-between center">
-                <md-button class="md-raised md-primary" ng-click="createTask($event)">Create task</md-button>
+                <md-button class="md-raised md-primary" ng-click="createSubtask($event)">Create Subtask</md-button>
+                <a class="md-raised md-primary" ng-click="returnToTaskListView()"><strong>Back</strong></a>
                 <div layout="column"  layout-align="center end">
                     <p class="tasks-number-info">Open Subtasks: {{ getNumberOfOpenSubtasks(filteredSubasks) }}</p>
                     <p class="tasks-number-info">Total: {{ filteredSubasks.length }}</p>

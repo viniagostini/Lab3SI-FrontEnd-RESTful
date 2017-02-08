@@ -63,6 +63,5 @@ angular.module('toDoList').service('subtasksRequestService', function(tasksReque
             console.log(response);
         }
     }
-
-
+    
 })

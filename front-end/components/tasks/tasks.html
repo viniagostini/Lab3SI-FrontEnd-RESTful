@@ -1,4 +1,4 @@
-<div ng-init="init()" id="tasks-component" style="margin-top: 25px">
+<div ng-init="init()" id="tasks-component">
     <md-card class="tasks-card">
         <md-card-title>
             <md-card-title-text layout-align="end center">
@@ -23,8 +23,8 @@
                     </tr>
                     </thead>
                     <tbody md-body>
-                    <tr class="content-row" md-row md-select="task" md-select-id="title" ng-repeat="task in taskList.tasks | orderBy: query.order | filter: filter.search as filteredTasks">
-                        <td md-cell><md-checkbox ng-model="task.done" ng-click="setTaskState(task)"></md-checkbox></td>
+                    <tr class="content-row" md-row md-select="task" md-select-id="title" ng-click="openSubtasks($event, task)" ng-repeat="task in taskList.tasks | orderBy: query.order | filter: filter.search as filteredTasks">
+                        <td md-cell><md-checkbox ng-model="task.done" ng-click="setTaskState(task)"  ng-disabled="true"></md-checkbox></td>
                         <td md-cell ng-style="{'text-decoration': defineTaskStyle(task.done)}">{{task.title}}</td>
                         <td md-cell>{{task.priority}}</td>
                         <td md-cell>{{task.category.name}}</td>

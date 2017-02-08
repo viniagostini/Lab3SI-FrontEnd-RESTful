@@ -1,21 +1,23 @@
 <div layout="column" ng-cloak>
     <md-toolbar class="md-hue-2" layout="row" layout-align="space-around center">
-
-            {{title}}
-
+        {{title}}
     </md-toolbar>
 
     <md-content layout-padding>
-        <form name="taskListForm" ng-submit="submit(taskList)">
+        <form name="subtaskForm" ng-submit="submit(subtask)">
             <div layout="row">
                 <md-input-container flex="100">
-                    <label>Task List Name</label>
-                    <input required name="name" ng-model="taskList.title">
-                    <div ng-messages="taskListForm.name.$error">
+                    <label>Subtask Title</label>
+                    <input required name="title" ng-model="subtask.title">
+                    <div ng-messages="subtaskForm.title.$error">
                         <div ng-message="required">This is required.</div>
                     </div>
                 </md-input-container>
             </div>
+            <md-input-container class="md-block">
+                <label>Description</label>
+                <textarea ng-model="subtask.description" md-maxlength="150" rows="3" md-select-on-focus></textarea>
+            </md-input-container>
             <div>
                 <md-button type="submit" class="md-raised md-primary">Submit</md-button>
             </div>
