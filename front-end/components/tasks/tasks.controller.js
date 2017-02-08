@@ -30,7 +30,7 @@ angular.module('toDoList').controller('tasksController', function($scope, $state
         }
         customDialogFactory.show(event,'components/tasks/templates/create.task.html', DialogController);
     }
-    
+
     $scope.editTask = function(task, event){
         function DialogController($scope, $mdDialog, taskCategoryRequestService) {
             $scope.task = task;
@@ -104,6 +104,15 @@ angular.module('toDoList').controller('tasksController', function($scope, $state
         getAllTasksByTaskListId(taskListId, function(response){
             console.log(response.data);
             $scope.taskList = response.data;
+            $scope.taskList.tasks.forEach(function(task){
+                if(task.priority === 'LOW'){
+                    task.priorityWeight = 1;
+                }else if(task.priority === 'MEDIUM'){
+                    task.priorityWeight = 2;
+                }else{
+                    task.priorityWeight = 3;
+                }
+            });
         });
     }
 
