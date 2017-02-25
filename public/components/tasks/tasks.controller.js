@@ -1,4 +1,4 @@
-angular.module('toDoList').controller('tasksController', function($scope, $stateParams, tasksRequestService, customDialogFactory, $state){
+angular.module('toDoList').controller('tasksController', function($scope, $stateParams, tasksRequestService, customDialogFactory, $state, $filter){
 
     $scope.taskList = {};
     $scope.fromTaskList = true;
@@ -98,6 +98,39 @@ angular.module('toDoList').controller('tasksController', function($scope, $state
         $state.go('subtasks', { taskId: task.id});
     }
 
+    $scope.exportPdf = function(){
+        var docDefinition = { content: taskListToSting($scope.taskList) };
+        pdfMake.createPdf(docDefinition).download('optionalName.pdf');
+    }
+
+    function taskListToSting(taskList){
+        var title = taskList.title;
+        var createAt = $filter('date')(taskList.createdAt,"dd/MM/yyyy");
+        var tasks = taskList.tasks;
+
+
+        var result = '----------   ' + title + '   ----------' + '\n';
+        result += 'Created At: ' +createAt + '\n\n';
+        result += 'Tasks: ' + '\n';
+        tasks.forEach(function(task){
+            result += '   \n*****' + task.title + '*****\n';
+            result += '   Priority: ' + task.priority + '\n';
+            result += '   Description: ' + task.description + '\n';
+            result += '   Category: ' + task.category.name + '\n';
+            result += '   Created At: ' +$filter('date')(task.createdAt,"dd/MM/yyyy");
+            result += '   Is done: ' + task.done + '\n';
+            result += '   SubTasks: ' + '\n';
+            var subTasks = task.subTasks;
+            subTasks.forEach(function(subTask){
+                result += '     \n##### ' + subTask.title + '#####\n';
+                result += '     Description: ' + subTask.description + '\n';
+            })
+            result += '--------------------------------------------------------------------' + '\n';
+        });
+
+
+        return result;
+    }
 
     function fillData(){
         taskListId = $stateParams.taskListId;
