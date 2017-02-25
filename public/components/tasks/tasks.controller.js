@@ -100,7 +100,7 @@ angular.module('toDoList').controller('tasksController', function($scope, $state
 
     $scope.exportPdf = function(){
         var docDefinition = { content: taskListToSting($scope.taskList) };
-        pdfMake.createPdf(docDefinition).download('optionalName.pdf');
+        pdfMake.createPdf(docDefinition).download('taskList.pdf');
     }
 
     function taskListToSting(taskList){
