@@ -11,43 +11,43 @@ angular.module('toDoList')
 
         .state('todolist', {
             url:'/todolist',
-            templateUrl: '../components/toDoList/toDoList.html',
+            templateUrl: 'public/components/toDoList/toDoList.html',
             controller: 'toDoListCtlr'
         })
 
         .state('taskcategory', {
             url:'/taskcategory',
-            templateUrl: '../components/category/taskCategory.html',
+            templateUrl: 'public/components/category/taskCategory.html',
             controller: 'taskCategoryController'
         })
 
         .state('tasklist', {
             url:'/tasklist',
-            templateUrl: '../components/taskLists/taskList.html',
+            templateUrl: 'public/components/taskLists/taskList.html',
             controller: 'taskListController'
         })
 
         .state('tasks', {
             url:'/tasks/:taskListId',
-            templateUrl: '../components/tasks/tasks.html',
+            templateUrl: 'public/components/tasks/tasks.html',
             controller: 'tasksController'
         })
 
         .state('tasksFromCategory', {
             url:'/tasksFomCategory/:taskCategoryId',
-            templateUrl: '../components/tasks/tasks.html',
+            templateUrl: 'public/components/tasks/tasks.html',
             controller: 'tasksFromCategoryController'
         })
 
         .state('subtasks', {
             url:'/subtasks/:taskId',
-            templateUrl: '../components/subtasks/subtasks.html',
+            templateUrl: 'public/components/subtasks/subtasks.html',
             controller: 'subtasksController'
         })
 
         .state('about', {
             url:'/about',
-            templateUrl: '../components/about/about.html'
+            templateUrl: 'public/components/about/about.html'
         })
 
 });

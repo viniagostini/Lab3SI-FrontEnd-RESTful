@@ -42,7 +42,7 @@ angular.module('toDoList').controller('tasksFromCategoryController', function($s
                 });
             };
         }
-        customDialogFactory.show(event,'components/tasks/templates/create.task.html', DialogController);
+        customDialogFactory.show(event,'public/components/tasks/templates/create.task.html', DialogController);
     }
 
     $scope.deleteTask = function(taskId){

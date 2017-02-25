@@ -70,7 +70,7 @@ angular.module('toDoList').controller('subtasksController', function($scope, $st
                 });
             };
         }
-        customDialogFactory.show(event,'components/subtasks/templates/create.subtask.html', DialogController);
+        customDialogFactory.show(event,'public/components/subtasks/templates/create.subtask.html', DialogController);
     }
 
     $scope.editSubtask = function (event, subtask) {

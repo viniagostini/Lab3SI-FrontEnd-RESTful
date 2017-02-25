@@ -28,7 +28,7 @@ angular.module('toDoList').controller('taskListController', function($scope, tas
                 })
             };
         }
-        customDialogFactory.show(event,'components/taskLists/templates/create.taskList.html', DialogController);
+        customDialogFactory.show(event,'public/components/taskLists/templates/create.taskList.html', DialogController);
     }
 
     $scope.editTaskList = function(event, taskList){
@@ -45,7 +45,7 @@ angular.module('toDoList').controller('taskListController', function($scope, tas
                 })
             };
         }
-        customDialogFactory.show(event,'components/taskLists/templates/create.taskList.html', DialogController);
+        customDialogFactory.show(event,'public/components/taskLists/templates/create.taskList.html', DialogController);
     }
 
     $scope.deleteTaskList = function (taskListId) {

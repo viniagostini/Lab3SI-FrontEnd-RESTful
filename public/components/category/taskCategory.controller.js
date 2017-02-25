@@ -33,7 +33,7 @@ angular.module('toDoList').controller('taskCategoryController', function($scope,
                 })
             };
         }
-        customDialogFactory.show(event,'components/category/templates/create.taskCategory.html', DialogController);
+        customDialogFactory.show(event,'public/components/category/templates/create.taskCategory.html', DialogController);
     }
 
     $scope.editTaskCategory = function (event, category){
@@ -50,7 +50,7 @@ angular.module('toDoList').controller('taskCategoryController', function($scope,
                 })
             };
         }
-        customDialogFactory.show(event,'components/category/templates/create.taskCategory.html', DialogController);
+        customDialogFactory.show(event,'public/components/category/templates/create.taskCategory.html', DialogController);
     }
 
     function Category(id, name, color){

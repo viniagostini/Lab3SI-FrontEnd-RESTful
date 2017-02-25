@@ -28,7 +28,7 @@ angular.module('toDoList').controller('tasksController', function($scope, $state
                 });
             };
         }
-        customDialogFactory.show(event,'components/tasks/templates/create.task.html', DialogController);
+        customDialogFactory.show(event,'public/components/tasks/templates/create.task.html', DialogController);
     }
 
     $scope.editTask = function(task, event){
@@ -51,7 +51,7 @@ angular.module('toDoList').controller('tasksController', function($scope, $state
                 });
             };
         }
-        customDialogFactory.show(event,'components/tasks/templates/create.task.html', DialogController);
+        customDialogFactory.show(event,'public/components/tasks/templates/create.task.html', DialogController);
     }
 
     $scope.setTaskState = function(task){
