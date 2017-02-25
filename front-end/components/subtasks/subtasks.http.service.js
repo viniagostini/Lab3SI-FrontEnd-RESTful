@@ -1,6 +1,6 @@
 angular.module('toDoList').service('subtaskHttpService', function($http){
 
-    var url = 'http://localhost:8080/subtasks/';
+    var url = 'https://lab3-si.herokuapp.com/subtasks/';
 
     this.getAllSubtasks = function (){
         return $http.get(url);

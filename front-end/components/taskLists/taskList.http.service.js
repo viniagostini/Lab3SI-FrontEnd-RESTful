@@ -1,6 +1,6 @@
 angular.module('toDoList').service('taskListHttpService', function($http){
 
-    var url = 'http://localhost:8080/tasklists/';
+    var url = 'https://lab3-si.herokuapp.com/tasklists/';
 
     this.getAllTaskLists = function (){
         return $http.get(url);
