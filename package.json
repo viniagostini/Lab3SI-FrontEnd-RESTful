@@ -4,7 +4,6 @@
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
-    "start": "http-server -a localhost -p 8000 -o -c1"
   },
   "dependencies": {
     "express": "*",
